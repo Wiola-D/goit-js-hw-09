@@ -54,7 +54,7 @@ const addLeadingZero = value => value.toString().padStart(2, '0');
 
 const countDownTime = time => {
   setInterval(() => {
-    if (time - 500 > 0) {
+    if (time - 10 > 0) {
       let timerInner = convertMs(time);
       time -= 1000;
       timerDay.innerHTML = addLeadingZero(timerInner.days);
