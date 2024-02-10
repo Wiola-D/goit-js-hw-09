@@ -34,7 +34,7 @@ const options = {
 flatpickr('#datetime-picker', options);
 btnStart.addEventListener('click', () => {
   countDownTime(remainingTime);
-  btnStart.setAttribute('disabled', '');
+  btnStart.disabled = true;
 });
 
 function convertMs(ms) {
@@ -54,11 +54,13 @@ const addLeadingZero = value => value.toString().padStart(2, '0');
 
 const countDownTime = time => {
   setInterval(() => {
-    let timerInner = convertMs(time);
-    time -= 1000;
-    timerDay.innerHTML = addLeadingZero(timerInner.days);
-    timerHours.innerHTML = addLeadingZero(timerInner.hours);
-    timerMinutes.innerHTML = addLeadingZero(timerInner.minutes);
-    timerSeconds.innerHTML = addLeadingZero(timerInner.seconds);
+    if (time - 500 > 0) {
+      let timerInner = convertMs(time);
+      time -= 1000;
+      timerDay.innerHTML = addLeadingZero(timerInner.days);
+      timerHours.innerHTML = addLeadingZero(timerInner.hours);
+      timerMinutes.innerHTML = addLeadingZero(timerInner.minutes);
+      timerSeconds.innerHTML = addLeadingZero(timerInner.seconds);
+    }
   }, 1000);
 };
