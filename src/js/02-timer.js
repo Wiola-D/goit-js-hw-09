@@ -33,6 +33,7 @@ const options = {
 
 flatpickr('#datetime-picker', options);
 btnStart.addEventListener('click', () => {
+  clearInterval();
   countDownTime(remainingTime);
   btnStart.disabled = true;
 });
